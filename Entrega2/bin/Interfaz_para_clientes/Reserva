@@ -1,0 +1,82 @@
+package Interfaz_para_clientes;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class PReserva extends JDialog {
+
+    private static final long serialVersionUID = 1L;
+    private FPrincipal fPrincipal;
+    private JTextField cpersonasTextField;
+    private JTextField llegadaTextField;
+    private JTextField horalleTextField;
+    private JTextField horasaTextField;
+    private JTextField camaTextField;
+    private JTextField cantidadTextField;
+    private JTextField idTextField;
+
+    private JButton crearReservaButton;
+
+    public PReserva(FPrincipal fPrincipal) {
+        this.setfPrincipal(fPrincipal);
+        this.setTitle("Reserva");
+        this.setSize(600, 300);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setLayout(new BorderLayout());
+
+        JPanel pCampos = new JPanel();
+        pCampos.setLayout(new GridLayout(4, 2, 10, 10));
+        pCampos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JLabel cpersonasLabel = new JLabel("Cantidad de personas:");
+        JLabel llegadaLabel = new JLabel("Fecha de llegada:");
+        JLabel horalleLabel = new JLabel("Hora de llegada:");
+        JLabel horasaLabel = new JLabel("Hora de salida:");
+        JLabel camaLabel = new JLabel("Cama para menores (Si/No):");
+        JLabel cantidadLabel = new JLabel("Cantidad de menores:");
+        JLabel idLabel = new JLabel("ID:");
+
+        cpersonasTextField = new JTextField();
+        idTextField = new JTextField();
+        llegadaTextField = new JTextField();
+        horalleTextField = new JTextField();
+        horasaTextField = new JTextField();
+        cantidadTextField = new JTextField();
+        camaTextField = new JTextField();
+
+        pCampos.add(cpersonasLabel);
+        pCampos.add(cpersonasTextField);
+        pCampos.add(llegadaLabel);
+        pCampos.add(llegadaTextField);
+        pCampos.add(horalleLabel);
+        pCampos.add(horalleTextField);
+        pCampos.add(horasaLabel);
+        pCampos.add(horasaTextField);
+        pCampos.add(cantidadLabel);
+        pCampos.add(cantidadTextField);
+        pCampos.add(idLabel);
+        pCampos.add(idTextField);
+        pCampos.add(camaLabel);
+        pCampos.add(camaTextField);
+
+
+        JPanel pBotones = new JPanel();
+        pBotones.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        pBotones.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        crearReservaButton = new JButton("Crear Reserva");
+        pBotones.add(crearReservaButton);
+
+        this.add(pCampos, BorderLayout.CENTER);
+        this.add(pBotones, BorderLayout.SOUTH);
+    }
+
+    public FPrincipal getfPrincipal() {
+        return fPrincipal;
+    }
+
+    public void setfPrincipal(FPrincipal fPrincipal) {
+        this.fPrincipal = fPrincipal;
+    }
+}
