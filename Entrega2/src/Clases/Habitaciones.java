@@ -23,14 +23,14 @@ public class Habitaciones {
 	private boolean plancha;
 	private boolean secadorPelo;
 	private int voltajeAC;
-	private boolean tomasUSB-A;
-	private boolean tomasUSB-C;
+	private boolean tomasUSBA;
+	private boolean tomasUSBC;
 	private boolean desayuno;
 
 	public Habitaciones(int numero, int tarifa, String ubicacion, 
 			boolean balcon, String tipo, boolean vista, boolean cocina, int tamaño, boolean aireAcondicionado,
 			boolean calefaccion, String tamañoCama, boolean TV, boolean cafetera, boolean ropaCamayTapetes,
-			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSB-A, boolean tomasUSB-C,
+			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSBA, boolean tomasUSBC,
 			boolean desayuno) {
 		this.numero = numero;
 		this.tarifa = tarifa;
@@ -49,20 +49,20 @@ public class Habitaciones {
 		this.plancha = plancha;
 		this.secadorPelo = secadorPelo;
 		this.voltajeAC = voltajeAC;
-		this.tomasUSB-A = tomasUSB-A;
-		this.tomasUSB-C = tomasUSB-C;
+		this.tomasUSBA = tomasUSBA;
+		this.tomasUSBC = tomasUSBC;
 		this.desayuno = desayuno;
 	}
 	
 	public boolean crearHabitacion(int numero, int tarifa, String ubicacion, 
 			boolean balcon, String tipo, boolean vista, boolean cocina, int tamaño, boolean aireAcondicionado,
 			boolean calefaccion, String tamañoCama, boolean TV, boolean cafetera, boolean ropaCamayTapetes,
-			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSB-A, boolean tomasUSB-C,
+			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSBA, boolean tomasUSBC,
 			boolean desayuno) {
 		if (!existeHabitacion(numero)) {
 			Habitaciones habitacion = new Habitaciones(numero, tarifa, ubicacion, balcon, tipo, vista, cocina, tamaño, 
 					aireAcondicionado,calefaccion, tamañoCama, TV, cafetera, ropaCamayTapetes, plancha, secadorPelo, 
-					voltajeAC, tomasUSB-A, tomasUSB-C, desayuno);
+					voltajeAC, tomasUSBA, tomasUSBC, desayuno);
 			this.habitaciones.put(numero, habitacion);
 			return true;
 		}else {
@@ -83,12 +83,12 @@ public class Habitaciones {
 	public void editarHabitacion(int numero, int tarifa, String ubicacion, 
 			boolean balcon, String tipo, boolean vista, boolean cocina, int tamaño, boolean aireAcondicionado,
 			boolean calefaccion, String tamañoCama, boolean TV, boolean cafetera, boolean ropaCamayTapetes,
-			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSB-A, boolean tomasUSB-C,
+			boolean plancha, boolean secadorPelo, int voltajeAC, boolean tomasUSBA, boolean tomasUSBC,
 			boolean desayuno) {
 		this.habitaciones.remove(numero);
 		crearHabitacion(numero, tarifa, ubicacion, balcon, tipo, vista, cocina, tamaño, 
 				aireAcondicionado,calefaccion, tamañoCama, TV, cafetera, ropaCamayTapetes, plancha, secadorPelo, 
-				voltajeAC, tomasUSB-A, tomasUSB-C, desayuno);
+				voltajeAC, tomasUSBA, tomasUSBC, desayuno);
 	}
 	
 	public Habitaciones consultarTarifa(int numero) {
